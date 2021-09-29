@@ -3,6 +3,8 @@ import { Flock, Boid } from 'wasm-boids';
 import vertexShaderSource from './shaders/simple-vertex.glsl';
 import fragmentShaderSource from './shaders/simple-fragment.glsl';
 
+import fps from './fps'
+
 let gl, canvas, ext;
 // const fixedDelta = 1/60.0;
 
@@ -94,6 +96,8 @@ const init = () => {
 }
 
 const update = (time) => {
+  fps.render();
+  
   flock.tick();
   render(time);
   requestAnimationFrame(update);

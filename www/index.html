@@ -24,10 +24,20 @@
       margin: 0;
       padding: 0;
     }
+    #fps {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      white-space: pre;
+      font-family: monospace;
+      color: pink;
+    }
   </style>
   <body>
     <canvas id="boids-canvas"></canvas>
     <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
     <script src="./bootstrap.js"></script>
+    <div id="fps">
+    </div>
   </body>
 </html>

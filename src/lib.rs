@@ -3,6 +3,7 @@
 mod utils;
 
 extern crate js_sys;
+extern crate web_sys;
 
 use wasm_bindgen::prelude::*;
 use vector2d::Vector2D;
@@ -15,6 +16,12 @@ use std::ops::Add;
 #[cfg(feature = "wee_alloc")]
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+
+macro_rules! log {
+  ( $( $t:tt )* ) => {
+      web_sys::console::log_1(&format!( $( $t )* ).into());
+  }
+}
 
 #[wasm_bindgen]
 pub struct Flock {
@@ -31,22 +38,24 @@ pub struct Flock {
 #[wasm_bindgen]
 impl Flock {
   pub fn new(width: f64, height: f64, count: i32, radius: f64, max_speed: f64, max_force: f64, desired_separation: f64, neighbor_distance: f64,) -> Flock {
-      let boids = (0..count)
-        .map(|_i| {
-          Boid::new(Vector2D::new(js_sys::Math::random() * width, js_sys::Math::random() * height))
-        })
-        .collect();
+    utils::set_panic_hook(); 
+    log!("Wasm boids v.0.1.0"); 
+    let boids = (0..count)
+      .map(|_i| {
+        Boid::new(Vector2D::new(js_sys::Math::random() * width, js_sys::Math::random() * height))
+      })
+      .collect();
 
-      Flock {
-          width,
-          height,
-          boids,
-          radius,
-          max_speed,
-          max_force,
-          desired_separation,
-          neighbor_distance
-      }
+    Flock {
+        width,
+        height,
+        boids,
+        radius,
+        max_speed,
+        max_force,
+        desired_separation,
+        neighbor_distance
+    }
   }
 
   pub fn boid_array(&self) -> Array {
@@ -210,7 +219,7 @@ impl Boid {
       acceleration: Vector2D::new(0.0, 0.0),
     }
   }
-}
+}w
 
 #[wasm_bindgen]
 impl Boid {
