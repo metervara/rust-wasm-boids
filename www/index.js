@@ -28,6 +28,10 @@ let flock;
 let resizeHandle = null;
 let resizeDebounce = 500;
 
+
+const title = document.getElementById("title");
+title.textContent = `RUST WASM BOIDS. Boid-count: ${boidCount}`;
+
 const positions = [
   0,  0.5,
   0.4, -0.5,
