@@ -8,7 +8,11 @@ module.exports = {
     filename: 'bootstrap.js',
   },
   mode: 'development',
-  plugins: [new CopyWebpackPlugin(['index.html'])],
+  plugins: [
+    new CopyWebpackPlugin(['index.html']),
+    new CopyWebpackPlugin(['m4.js']),
+    new CopyWebpackPlugin(['webgl-utils.js'])
+  ],
   module: {
     rules: [
       {
