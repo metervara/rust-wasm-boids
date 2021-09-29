@@ -9,6 +9,8 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     html, 
     body {
@@ -24,7 +26,7 @@
       margin: 0;
       padding: 0;
     }
-    #fps {
+    #info {
       position: absolute;
       left: 10px;
       top: 10px;
@@ -32,12 +34,19 @@
       font-family: monospace;
       color: pink;
     }
+    p {
+      margin: 0;
+      padding: 0;
+    }
   </style>
   <body>
     <canvas id="boids-canvas"></canvas>
     <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
     <script src="./bootstrap.js"></script>
-    <div id="fps">
+    <div id="info">
+      <p id="title">RUST WASM BOIDS</p>
+      <div id="fps">
+      </div>
     </div>
   </body>
 </html>
