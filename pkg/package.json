@@ -1,0 +1,15 @@
+{
+  "name": "wasm-boids",
+  "collaborators": [
+    "Patrik Svensson <ps@molamil.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "wasm_boids_bg.wasm",
+    "wasm_boids.js",
+    "wasm_boids.d.ts"
+  ],
+  "module": "wasm_boids.js",
+  "types": "wasm_boids.d.ts",
+  "sideEffects": false
+}
